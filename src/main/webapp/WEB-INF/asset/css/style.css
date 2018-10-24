@@ -1,0 +1,17 @@
+.logo {
+	width: 100%;
+	float: left;
+	margin: 0 auto;
+}
+
+.content {
+	width: 100%;
+	float: left;
+	margin: 0 auto;
+}
+
+.content-center {
+	width: 70%;
+	float: left;
+	margin: auto;
+}
