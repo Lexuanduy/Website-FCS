@@ -17,8 +17,9 @@
 	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="../asset/css/style.css">
-<script src="/asset/js/jquery.js"></script>
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	
 <title>Sign up</title>
 </head>
 <body>
@@ -90,31 +91,29 @@
 }
 </style>
 	<script>
-	$("#submit").click(function() {
-		//declare javascript object
-	var user = {
-            email: $("#email").val(),
-            address:$("#password").val(),
-            securityCode:$("#securityCode").val(),
-            fullName:$("#fullName").val(),
-            id:$("#cmnd").val(),
-            birthDay:$("#birthDay").val(),
-            presentName:$("#presentName").val(),
-            presentLink:$("#presentLink").val()
-        };
-		console.log("click submit");
-		$.ajax({
-			url : "/signUp",
-			type : 'POST',
-			data: JSON.stringify(user),
-			dataType: 'json',
-			contentType: 'application/json',
-			processData : false,
-			success : function(data) {
-				console.log(data);
-			}
-		});
-	});
+	$("#submit").click(function(){
+        var user = {
+        		email: $("#email").val(),
+                password:$("#password").val(),
+                securityCode:$("#securityCode").val(),
+                fullName:$("#fullName").val(),
+                id:$("#cmnd").val(),
+                birthDay:$("#birthDay").val(),
+                presentName:$("#presentName").val(),
+                presentLink:$("#presentLink").val()
+        }
+		console.log(user);
+        $.ajax({
+            url: '/signUp',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (data) {
+            	console.log(data);
+            },
+            data: JSON.stringify(user)
+        });
+    });
 	</script>
 </body>
 </html>

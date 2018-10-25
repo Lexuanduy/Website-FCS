@@ -14,7 +14,7 @@ public class User {
 	@Index
 	private String fullName;
 	private Date birthDay;
-	private String emai;
+	private String email;
 	private String passWord;
 	private String securityCode;
 	private String presenterName;
@@ -23,12 +23,12 @@ public class User {
 	public User() {
 	}
 
-	public User(String id, String fullName, Date birthDay, String emai, String passWord, String securityCode,
+	public User(String id, String fullName, Date birthDay, String email, String passWord, String securityCode,
 			String presenterName, String presenterLink) {
 		this.id = id;
 		this.fullName = fullName;
 		this.birthDay = birthDay;
-		this.emai = emai;
+		this.email = email;
 		this.passWord = passWord;
 		this.securityCode = securityCode;
 		this.presenterName = presenterName;
@@ -59,12 +59,12 @@ public class User {
 		this.birthDay = birthDay;
 	}
 
-	public String getEmai() {
-		return emai;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmai(String emai) {
-		this.emai = emai;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassWord() {
