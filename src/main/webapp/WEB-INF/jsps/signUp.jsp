@@ -17,9 +17,9 @@
 	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
 	crossorigin="anonymous">
-	<script
+<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	
+
 <title>Sign up</title>
 </head>
 <body>
@@ -31,20 +31,23 @@
 				<div class="row">
 					<div class="col-sm-6">
 						Email: <input id="email" type="text" name="Email" value=""><br>
-						Password: <input id="password" type="text" name="Password" value=""><br>
-						Securiry code: <input id="securityCode" type="text" name="SecuriryCode" value=""><br>
+						Password: <input id="password" type="password" name="Password"
+							value=""><br> Securiry code: <input
+							id="securityCode" type="text" name="SecuriryCode" value=""><br>
 						Retype code: <input type="text" name="" value=""><br>
 					</div>
 					<div class="col-sm-6">
-						Full name: <input id="fullName" type="text" name="Fullname" value=""><br>
-						CMND: <input id="cmnd" type="text" name="CMND" value=""><br>
-						Birthday (date and time): <input id="birthDay" type="date" name="bdaytime" value="">
+						Full name: <input id="fullName" type="text" name="Fullname"
+							value=""><br> CMND: <input id="cmnd" type="text"
+							name="CMND" value=""><br> Birthday (date and time):
+						<input id="birthDay" type="date" name="bdaytime" value="">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-6">
-						Presenter Name: <input id="presentName" type="text" name="presenterName" value=""><br>
-						Presenter Link: <input id="presentLink" type="text" name="presenterLink" value=""><br>
+						Presenter Name: <input id="presentName" type="text"
+							name="presenterName" value=""><br> Presenter Link: <input
+							id="presentLink" type="text" name="presenterLink" value=""><br>
 					</div>
 					<div class="col-sm-6">Create USDT GO</div>
 				</div>
@@ -91,29 +94,54 @@
 }
 </style>
 	<script>
-	$("#submit").click(function(){
-        var user = {
-        		email: $("#email").val(),
-                password:$("#password").val(),
-                securityCode:$("#securityCode").val(),
-                fullName:$("#fullName").val(),
-                id:$("#cmnd").val(),
-                birthDay:$("#birthDay").val(),
-                presentName:$("#presentName").val(),
-                presentLink:$("#presentLink").val()
-        }
-		console.log(user);
-        $.ajax({
-            url: '/signUp',
-            type: 'POST',
-            dataType: 'json',
-            contentType: 'application/json',
-            success: function (data) {
-            	console.log(data);
-            },
-            data: JSON.stringify(user)
-        });
-    });
+		/* $("#submit").click(function() {
+			var user = new Object();
+			user = {
+				email : $("#email").val(),
+				password : $("#password").val(),
+				securityCode : $("#securityCode").val(),
+				fullName : $("#fullName").val(),
+				id : $("#cmnd").val(),
+				birthDay : $("#birthDay").val(),
+				presentName : $("#presentName").val(),
+				presentLink : $("#presentLink").val()
+			}
+			console.log(user);
+			$.ajax({
+				url : '/signUp',
+				type : 'POST',
+				dataType : 'json',
+				contentType : false,
+				success : function(data) {
+					console.log(data);
+				},
+				data : JSON.stringify(user)
+			});
+		}); */
+
+		$("#submit").click(function() {
+		$.ajax({
+			url : "/signUp",
+			type : 'POST',
+			data : {
+				id : $("#cmnd").val(),
+				fullName : $("#fullName").val(),
+				birthDay : $("#birthDay").val(),
+					email : $("#email").val(),
+					password : $("#password").val(),
+					securityCode : $("#securityCode").val(),
+					presentName : $("#presentName").val(),
+					presentLink : $("#presentLink").val(),
+					},
+			dataType : "json",
+			success : function(data) {
+				console.log(data);
+			},
+			error : function(data) {
+				console.log("error:", data);
+			}
+		});
+		});
 	</script>
 </body>
 </html>

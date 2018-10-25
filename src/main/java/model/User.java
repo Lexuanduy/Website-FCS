@@ -19,12 +19,17 @@ public class User {
 	private String securityCode;
 	private String presenterName;
 	private String presenterLink;
+	private Long createdAt;
+	private Long updatedAt;
 	
 	public User() {
 	}
 
+	
+
 	public User(String id, String fullName, Date birthDay, String email, String passWord, String securityCode,
-			String presenterName, String presenterLink) {
+			String presenterName, String presenterLink, Long createdAt, Long updatedAt) {
+		super();
 		this.id = id;
 		this.fullName = fullName;
 		this.birthDay = birthDay;
@@ -33,7 +38,11 @@ public class User {
 		this.securityCode = securityCode;
 		this.presenterName = presenterName;
 		this.presenterLink = presenterLink;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
+
+
 
 	public String getId() {
 		return id;
